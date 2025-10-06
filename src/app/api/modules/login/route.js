@@ -14,9 +14,9 @@ import * as service from '../../../services/login/loginService';
  */
 export async function POST(req) {
     try {
-        const { username, password } = await req.json();
+        const { username, password ,connectObj} = await req.json();
 
-        const result = await service.getUserLogin(username, password);
+        const result = await service.getUserLogin(username, password,connectObj);
 
         return NextResponse.json(result, { status: 200 });
     } catch (error) {
