@@ -14,9 +14,9 @@ let failStatus = 'fail';
  * @date 03 Oct 2025
  */
 
-export const getUserLogin = async (username, password,connectObj) => {
+export const getUserLogin = async (username, password) => {
   try {
-    if (!username || !password || !connectObj ) {
+    if (!username || !password ) {
       return common.setResponse(failStatus, "Login credential not found", {
         service: "getUserLogin",
         params: { username, password },
@@ -24,8 +24,7 @@ export const getUserLogin = async (username, password,connectObj) => {
     }
 
     // 🔹 Fetch JSON from storage
-    let url = `${common.getCityStoragePath(connectObj)}%2FWorkAssignmentUsers%2FWorkAssignmentUsers.json?alt=media`;
-    console.log(url)
+    let url = `${common.getCityStoragePath()}%2FWorkAssignmentUsers%2FWorkAssignmentUsers.json?alt=media`;
     const res = await axios.get(url);
 
     if (!res || !res.data) {
