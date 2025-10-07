@@ -36,7 +36,7 @@ export async function POST(req) {
       { status: 500 }
     );
   } catch (error) {
-    console.error("❌ Connect-Database API Error:", error.message);
+    console.log("❌ Connect-Database API Error:", error.message);
     return NextResponse.json(
       { status: "fail", msg: error.message || "Unexpected Firebase connection error." },
       { status: 500 }
